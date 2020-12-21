@@ -2,6 +2,9 @@ import React from 'react';
 import Slider from 'react-slick';
 import get from 'lodash/get';
 import map from 'lodash/map';
+import shuffle from 'lodash/shuffle';
+
+import {Link, safePrefix} from '../utils';
 
 // Import CSS files
 import 'slick-carousel/slick/slick.css';
@@ -19,19 +22,23 @@ const settings = {
 };
 
 const QuoteCarousel = props => {
+    const quotes = shuffle(get(props, 'pageContext.site.data.quotes.items'));
     return (
         <section id={get(props, 'section.section_id')} className={'wrapper alt ' + get(props, 'section.background_style')}>
             <div id="quote-carousel">
                 <Slider {...settings}>
-                    {map(['1', '2', '3', '4', '5'], panelNumber => (
-                        <div className="panel">
+                    {map(quotes, (quote, quote_idx) => (
+                        <div id={`quote-${quote_idx}`} className="panel">
                             <div className="quote">
-                                <h3>{`This is Quote #${panelNumber}`}</h3>
-                                <h5>-Anonymous Author</h5>
+                                <h3>{`"${quote.text}"`}</h3>
+                                <h5>{`- ${quote.author}`}</h5>
                             </div>
                         </div>
                     ))}
                 </Slider>
+                <div>
+                    <Link to={(safePrefix('/quotes'))}>View All Quotes</Link>
+                </div>
             </div>
         </section>
     );
