@@ -107,10 +107,7 @@ sections:
     type: spotlights
   - background_style: style2
     component: QuoteCarousel
-    section_id: quote-carousel-old
-  - type: quote_carousel
-    title: quote-carousel
-    section_id: quote-carousel-new
+    section_id: quote-carousel
   - background_style: style3
     component: Features
     features:
