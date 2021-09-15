@@ -54,8 +54,7 @@ sections:
       real estate investors to track, manage, and analyze their portfolio
       and underlying assets at-a-glance from anywhere in the world.
     title: |-
-      My passion and vehicle is
-      full-stack web app development
+      My passion and vehicle is full-stack web app development
     type: icons
   - background_style: style2
     component: Spotlights
